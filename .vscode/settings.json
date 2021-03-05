@@ -1,0 +1,6 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "/Users/charlesmuthini/.pyenv/versions/3.7.4/envs/pula/bin/python",
+    "python.linting.pylintArgs": ["--load-plugins", "pylint", "pylint_django"],
+    "editor.formatOnSave": true
+  }
