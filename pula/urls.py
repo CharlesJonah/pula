@@ -23,10 +23,17 @@ from rest_framework_simplejwt.views import (
 )
 
 
-from .harvests.views import FarmViewSet
+from .harvests.views import (
+    FarmViewSet,
+    FarmerViewSet,
+    HarvestViewSet,
+    PhotoViewSet)
 
 router = routers.DefaultRouter()
 router.register(r'farms', FarmViewSet)
+router.register(r'farmers', FarmerViewSet)
+router.register(r'harvests', HarvestViewSet)
+router.register(r'photos', PhotoViewSet)
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),
