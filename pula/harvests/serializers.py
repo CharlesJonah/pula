@@ -85,7 +85,7 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     photo = serializers.ListField(
         child=serializers.FileField(max_length=100000,
                                     allow_empty_file=False,
-                                    use_url=False)
+                                    use_url=True)
     )
     created_by = serializers.PrimaryKeyRelatedField(
         default=serializers.CurrentUserDefault(), read_only=True)
@@ -103,6 +103,7 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         photos = validated_data.pop('photo')
+        harvest = Harvest.objects.get(id=validated_data['harvest'].id)
         for photo in photos:
             photo_obj = Photo.objects.create(photo=photo, **validated_data)
         return photo_obj
