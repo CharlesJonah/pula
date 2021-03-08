@@ -79,7 +79,7 @@ class PhotoViewSet(viewsets.ModelViewSet):
     """
     ViewSet for viewing and editing photos.
     """
-    parser_classes = (MultiPartParser, )
+    parser_classes = (MultiPartParser, FormParser, JSONParser)
     queryset = Photo.objects.all()
     serializer_class = PhotoSerializer
 
